@@ -32,7 +32,7 @@ class IToDoRepository extends ToDoRepository {
     final todoList = await userCol
         .doc(userId)
         .collection('todos')
-        .where('isDone', isEqualTo: false)
+        .where('isCompleted', isEqualTo: false)
         .get();
     return todoList.docs.map((e) => ToDo.fromJson(e.data())).toList();
   }
@@ -59,7 +59,7 @@ class IToDoRepository extends ToDoRepository {
         .doc(userId)
         .collection('todos')
         .doc(todoId)
-        .update({'isDone': true});
+        .update({'isCompleted': true});
   }
 }
 

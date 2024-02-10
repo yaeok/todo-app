@@ -31,7 +31,7 @@ class TodoView extends HookConsumerWidget {
             itemBuilder: (c, index) {
               final todo = todos[index];
               return Dismissible(
-                key: Key(todo.todoId),
+                key: Key(todo.todoId.toString()),
                 onDismissed: (direction) async {
                   if (direction == DismissDirection.startToEnd) {
                     await ref.read(todoRepositoryProvider).complete(

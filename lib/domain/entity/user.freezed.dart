@@ -23,8 +23,14 @@ mixin _$User {
   String get uid => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,8 +46,14 @@ abstract class $UserCopyWith<$Res> {
       {String uid,
       String username,
       String email,
-      DateTime createdAt,
-      DateTime updatedAt});
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      DateTime? createdAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      DateTime? updatedAt});
 }
 
 /// @nodoc
@@ -60,8 +72,8 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? uid = null,
     Object? username = null,
     Object? email = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       uid: null == uid
@@ -76,14 +88,14 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
+              as DateTime?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -99,8 +111,14 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       {String uid,
       String username,
       String email,
-      DateTime createdAt,
-      DateTime updatedAt});
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      DateTime? createdAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      DateTime? updatedAt});
 }
 
 /// @nodoc
@@ -116,8 +134,8 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? uid = null,
     Object? username = null,
     Object? email = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$UserImpl(
       uid: null == uid
@@ -132,14 +150,14 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
+              as DateTime?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ));
   }
 }
@@ -151,7 +169,13 @@ class _$UserImpl implements _User {
       {required this.uid,
       required this.username,
       required this.email,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
       required this.createdAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
       required this.updatedAt});
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
@@ -164,9 +188,15 @@ class _$UserImpl implements _User {
   @override
   final String email;
   @override
-  final DateTime createdAt;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  final DateTime? createdAt;
   @override
-  final DateTime updatedAt;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  final DateTime? updatedAt;
 
   @override
   String toString() {
@@ -212,8 +242,14 @@ abstract class _User implements User {
       {required final String uid,
       required final String username,
       required final String email,
-      required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$UserImpl;
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      required final DateTime? createdAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      required final DateTime? updatedAt}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
@@ -224,9 +260,15 @@ abstract class _User implements User {
   @override
   String get email;
   @override
-  DateTime get createdAt;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  DateTime? get createdAt;
   @override
-  DateTime get updatedAt;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  DateTime? get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>

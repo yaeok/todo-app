@@ -88,20 +88,11 @@ class EmailSignUpView extends HookConsumerWidget {
                   ),
                   const SizedBox(height: 16),
                   TextButton(
-                    onPressed: () => context.go(RouterPath.signIn),
+                    onPressed: () {
+                      context.go(RouterPath.signIn);
+                    },
                     child: const Text(
                       'アカウントをお持ちの方はこちら',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Color.fromARGB(255, 65, 36, 36),
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () => context.go(RouterPath.todo),
-                    child: const Text(
-                      'アカウントを作らずに使う',
                       style: TextStyle(
                         fontSize: 12,
                         color: Color.fromARGB(255, 65, 36, 36),
