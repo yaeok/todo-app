@@ -10,8 +10,8 @@ _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       uid: json['uid'] as String,
       username: json['username'] as String,
       email: json['email'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      updatedAt: DateTime.parse(json['updatedAt'] as String),
+      createdAt: FirestoreField.fromTimestamp(json['createdAt'] as Timestamp?),
+      updatedAt: FirestoreField.fromTimestamp(json['updatedAt'] as Timestamp?),
     );
 
 Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
@@ -19,6 +19,6 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
       'uid': instance.uid,
       'username': instance.username,
       'email': instance.email,
-      'createdAt': instance.createdAt.toIso8601String(),
-      'updatedAt': instance.updatedAt.toIso8601String(),
+      'createdAt': FirestoreField.toTimestampJson(instance.createdAt),
+      'updatedAt': FirestoreField.toTimestampJson(instance.updatedAt),
     };

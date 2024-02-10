@@ -93,7 +93,7 @@ class EmailSignInView extends HookConsumerWidget {
                   child: RoundRectButton(
                     title: 'アカウント作成',
                     onPressed: () {
-                      context.goNamed(RouterPath.signUp);
+                      context.go(RouterPath.signUp);
                     },
                   ),
                 ),

@@ -66,27 +66,14 @@ class TodoDetailView extends HookConsumerWidget {
                   children: [
                     Column(
                       children: [
-                        const Text('開始日時'),
+                        const Text('作成日時'),
                         Text(
                           DateFormat('yyyy-MM-dd')
-                              .format(recTodo.startDateTime as DateTime),
+                              .format(recTodo.createdAt as DateTime),
                         ),
                         Text(
                           DateFormat('hh:mm')
-                              .format(recTodo.startDateTime as DateTime),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        const Text('終了日時'),
-                        Text(
-                          DateFormat('yyyy-MM-dd')
-                              .format(recTodo.endDateTime as DateTime),
-                        ),
-                        Text(
-                          DateFormat('hh:mm')
-                              .format(recTodo.endDateTime as DateTime),
+                              .format(recTodo.createdAt as DateTime),
                         ),
                       ],
                     ),

@@ -9,73 +9,46 @@ class RegisterToDoController extends StateNotifier<RegisterToDoState> {
       : super(
           RegisterToDoState(
             recTodo: ToDo(
-                todoId: '',
-                title: '',
-                description: '',
-                startDateTime: DateTime.now(),
-                endDateTime: DateTime.now(),
-                isAllDay: false,
-                isDone: false),
+              todoId: '',
+              title: '',
+              description: '',
+              isCompleted: false,
+              completedAt: null,
+              isActive: false,
+              createdAt: DateTime.now(),
+              updatedAt: null,
+              deletedAt: null,
+            ),
           ),
         );
 
   void setTitle(String title) {
     final todo = ToDo(
-        todoId: state.recTodo.todoId,
-        title: title,
-        description: state.recTodo.description,
-        startDateTime: state.recTodo.startDateTime,
-        endDateTime: state.recTodo.endDateTime,
-        isAllDay: state.recTodo.isAllDay,
-        isDone: state.recTodo.isDone);
+      todoId: state.recTodo.todoId,
+      title: title,
+      description: state.recTodo.description,
+      isCompleted: state.recTodo.isCompleted,
+      completedAt: state.recTodo.completedAt,
+      isActive: state.recTodo.isActive,
+      createdAt: state.recTodo.createdAt,
+      updatedAt: state.recTodo.updatedAt,
+      deletedAt: state.recTodo.deletedAt,
+    );
     state = state.copyWith(recTodo: todo);
   }
 
   void setDescription(String description) {
     final todo = ToDo(
-        todoId: state.recTodo.todoId,
-        title: state.recTodo.title,
-        description: description,
-        startDateTime: state.recTodo.startDateTime,
-        endDateTime: state.recTodo.endDateTime,
-        isAllDay: state.recTodo.isAllDay,
-        isDone: state.recTodo.isDone);
-    state = state.copyWith(recTodo: todo);
-  }
-
-  void setStartDateTime(DateTime startDateTime) {
-    final todo = ToDo(
-        todoId: state.recTodo.todoId,
-        title: state.recTodo.title,
-        description: state.recTodo.description,
-        startDateTime: startDateTime,
-        endDateTime: state.recTodo.endDateTime,
-        isAllDay: state.recTodo.isAllDay,
-        isDone: state.recTodo.isDone);
-    state = state.copyWith(recTodo: todo);
-  }
-
-  void setEndDateTime(DateTime endDateTime) {
-    final todo = ToDo(
-        todoId: state.recTodo.todoId,
-        title: state.recTodo.title,
-        description: state.recTodo.description,
-        startDateTime: state.recTodo.startDateTime,
-        endDateTime: endDateTime,
-        isAllDay: state.recTodo.isAllDay,
-        isDone: state.recTodo.isDone);
-    state = state.copyWith(recTodo: todo);
-  }
-
-  void setIsAllDay(bool isAllDay) {
-    final todo = ToDo(
-        todoId: state.recTodo.todoId,
-        title: state.recTodo.title,
-        description: state.recTodo.description,
-        startDateTime: state.recTodo.startDateTime,
-        endDateTime: state.recTodo.endDateTime,
-        isAllDay: isAllDay,
-        isDone: state.recTodo.isDone);
+      todoId: state.recTodo.todoId,
+      title: state.recTodo.title,
+      description: description,
+      isCompleted: state.recTodo.isCompleted,
+      completedAt: state.recTodo.completedAt,
+      isActive: state.recTodo.isActive,
+      createdAt: state.recTodo.createdAt,
+      updatedAt: state.recTodo.updatedAt,
+      deletedAt: state.recTodo.deletedAt,
+    );
     state = state.copyWith(recTodo: todo);
   }
 

@@ -23,10 +23,24 @@ mixin _$ToDo {
   String get todoId => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  DateTime? get startDateTime => throw _privateConstructorUsedError;
-  DateTime? get endDateTime => throw _privateConstructorUsedError;
-  bool get isAllDay => throw _privateConstructorUsedError;
-  bool get isDone => throw _privateConstructorUsedError;
+  bool get isCompleted => throw _privateConstructorUsedError;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  DateTime? get completedAt => throw _privateConstructorUsedError;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  DateTime? get deletedAt => throw _privateConstructorUsedError;
+  bool get isActive => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,10 +56,24 @@ abstract class $ToDoCopyWith<$Res> {
       {String todoId,
       String title,
       String description,
-      DateTime? startDateTime,
-      DateTime? endDateTime,
-      bool isAllDay,
-      bool isDone});
+      bool isCompleted,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      DateTime? completedAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      DateTime? createdAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      DateTime? updatedAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      DateTime? deletedAt,
+      bool isActive});
 }
 
 /// @nodoc
@@ -64,10 +92,12 @@ class _$ToDoCopyWithImpl<$Res, $Val extends ToDo>
     Object? todoId = null,
     Object? title = null,
     Object? description = null,
-    Object? startDateTime = freezed,
-    Object? endDateTime = freezed,
-    Object? isAllDay = null,
-    Object? isDone = null,
+    Object? isCompleted = null,
+    Object? completedAt = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? deletedAt = freezed,
+    Object? isActive = null,
   }) {
     return _then(_value.copyWith(
       todoId: null == todoId
@@ -82,21 +112,29 @@ class _$ToDoCopyWithImpl<$Res, $Val extends ToDo>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      startDateTime: freezed == startDateTime
-          ? _value.startDateTime
-          : startDateTime // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      endDateTime: freezed == endDateTime
-          ? _value.endDateTime
-          : endDateTime // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      isAllDay: null == isAllDay
-          ? _value.isAllDay
-          : isAllDay // ignore: cast_nullable_to_non_nullable
+      isCompleted: null == isCompleted
+          ? _value.isCompleted
+          : isCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      isDone: null == isDone
-          ? _value.isDone
-          : isDone // ignore: cast_nullable_to_non_nullable
+      completedAt: freezed == completedAt
+          ? _value.completedAt
+          : completedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      deletedAt: freezed == deletedAt
+          ? _value.deletedAt
+          : deletedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      isActive: null == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -113,10 +151,24 @@ abstract class _$$ToDoImplCopyWith<$Res> implements $ToDoCopyWith<$Res> {
       {String todoId,
       String title,
       String description,
-      DateTime? startDateTime,
-      DateTime? endDateTime,
-      bool isAllDay,
-      bool isDone});
+      bool isCompleted,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      DateTime? completedAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      DateTime? createdAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      DateTime? updatedAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      DateTime? deletedAt,
+      bool isActive});
 }
 
 /// @nodoc
@@ -132,10 +184,12 @@ class __$$ToDoImplCopyWithImpl<$Res>
     Object? todoId = null,
     Object? title = null,
     Object? description = null,
-    Object? startDateTime = freezed,
-    Object? endDateTime = freezed,
-    Object? isAllDay = null,
-    Object? isDone = null,
+    Object? isCompleted = null,
+    Object? completedAt = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? deletedAt = freezed,
+    Object? isActive = null,
   }) {
     return _then(_$ToDoImpl(
       todoId: null == todoId
@@ -150,21 +204,29 @@ class __$$ToDoImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      startDateTime: freezed == startDateTime
-          ? _value.startDateTime
-          : startDateTime // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      endDateTime: freezed == endDateTime
-          ? _value.endDateTime
-          : endDateTime // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      isAllDay: null == isAllDay
-          ? _value.isAllDay
-          : isAllDay // ignore: cast_nullable_to_non_nullable
+      isCompleted: null == isCompleted
+          ? _value.isCompleted
+          : isCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      isDone: null == isDone
-          ? _value.isDone
-          : isDone // ignore: cast_nullable_to_non_nullable
+      completedAt: freezed == completedAt
+          ? _value.completedAt
+          : completedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      deletedAt: freezed == deletedAt
+          ? _value.deletedAt
+          : deletedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      isActive: null == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -177,10 +239,24 @@ class _$ToDoImpl implements _ToDo {
       {required this.todoId,
       required this.title,
       required this.description,
-      required this.startDateTime,
-      required this.endDateTime,
-      required this.isAllDay,
-      required this.isDone});
+      required this.isCompleted,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      required this.completedAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      required this.createdAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      required this.updatedAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      required this.deletedAt,
+      required this.isActive});
 
   factory _$ToDoImpl.fromJson(Map<String, dynamic> json) =>
       _$$ToDoImplFromJson(json);
@@ -192,17 +268,33 @@ class _$ToDoImpl implements _ToDo {
   @override
   final String description;
   @override
-  final DateTime? startDateTime;
+  final bool isCompleted;
   @override
-  final DateTime? endDateTime;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  final DateTime? completedAt;
   @override
-  final bool isAllDay;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  final DateTime? createdAt;
   @override
-  final bool isDone;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  final DateTime? updatedAt;
+  @override
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  final DateTime? deletedAt;
+  @override
+  final bool isActive;
 
   @override
   String toString() {
-    return 'ToDo(todoId: $todoId, title: $title, description: $description, startDateTime: $startDateTime, endDateTime: $endDateTime, isAllDay: $isAllDay, isDone: $isDone)';
+    return 'ToDo(todoId: $todoId, title: $title, description: $description, isCompleted: $isCompleted, completedAt: $completedAt, createdAt: $createdAt, updatedAt: $updatedAt, deletedAt: $deletedAt, isActive: $isActive)';
   }
 
   @override
@@ -214,19 +306,24 @@ class _$ToDoImpl implements _ToDo {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.startDateTime, startDateTime) ||
-                other.startDateTime == startDateTime) &&
-            (identical(other.endDateTime, endDateTime) ||
-                other.endDateTime == endDateTime) &&
-            (identical(other.isAllDay, isAllDay) ||
-                other.isAllDay == isAllDay) &&
-            (identical(other.isDone, isDone) || other.isDone == isDone));
+            (identical(other.isCompleted, isCompleted) ||
+                other.isCompleted == isCompleted) &&
+            (identical(other.completedAt, completedAt) ||
+                other.completedAt == completedAt) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
+            (identical(other.deletedAt, deletedAt) ||
+                other.deletedAt == deletedAt) &&
+            (identical(other.isActive, isActive) ||
+                other.isActive == isActive));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, todoId, title, description,
-      startDateTime, endDateTime, isAllDay, isDone);
+      isCompleted, completedAt, createdAt, updatedAt, deletedAt, isActive);
 
   @JsonKey(ignore: true)
   @override
@@ -247,10 +344,24 @@ abstract class _ToDo implements ToDo {
       {required final String todoId,
       required final String title,
       required final String description,
-      required final DateTime? startDateTime,
-      required final DateTime? endDateTime,
-      required final bool isAllDay,
-      required final bool isDone}) = _$ToDoImpl;
+      required final bool isCompleted,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      required final DateTime? completedAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      required final DateTime? createdAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      required final DateTime? updatedAt,
+      @JsonKey(
+          toJson: FirestoreField.toTimestampJson,
+          fromJson: FirestoreField.fromTimestamp)
+      required final DateTime? deletedAt,
+      required final bool isActive}) = _$ToDoImpl;
 
   factory _ToDo.fromJson(Map<String, dynamic> json) = _$ToDoImpl.fromJson;
 
@@ -261,13 +372,29 @@ abstract class _ToDo implements ToDo {
   @override
   String get description;
   @override
-  DateTime? get startDateTime;
+  bool get isCompleted;
   @override
-  DateTime? get endDateTime;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  DateTime? get completedAt;
   @override
-  bool get isAllDay;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  DateTime? get createdAt;
   @override
-  bool get isDone;
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  DateTime? get updatedAt;
+  @override
+  @JsonKey(
+      toJson: FirestoreField.toTimestampJson,
+      fromJson: FirestoreField.fromTimestamp)
+  DateTime? get deletedAt;
+  @override
+  bool get isActive;
   @override
   @JsonKey(ignore: true)
   _$$ToDoImplCopyWith<_$ToDoImpl> get copyWith =>

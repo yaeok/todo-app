@@ -10,14 +10,13 @@ _$ToDoImpl _$$ToDoImplFromJson(Map<String, dynamic> json) => _$ToDoImpl(
       todoId: json['todoId'] as String,
       title: json['title'] as String,
       description: json['description'] as String,
-      startDateTime: json['startDateTime'] == null
-          ? null
-          : DateTime.parse(json['startDateTime'] as String),
-      endDateTime: json['endDateTime'] == null
-          ? null
-          : DateTime.parse(json['endDateTime'] as String),
-      isAllDay: json['isAllDay'] as bool,
-      isDone: json['isDone'] as bool,
+      isCompleted: json['isCompleted'] as bool,
+      completedAt:
+          FirestoreField.fromTimestamp(json['completedAt'] as Timestamp?),
+      createdAt: FirestoreField.fromTimestamp(json['createdAt'] as Timestamp?),
+      updatedAt: FirestoreField.fromTimestamp(json['updatedAt'] as Timestamp?),
+      deletedAt: FirestoreField.fromTimestamp(json['deletedAt'] as Timestamp?),
+      isActive: json['isActive'] as bool,
     );
 
 Map<String, dynamic> _$$ToDoImplToJson(_$ToDoImpl instance) =>
@@ -25,8 +24,10 @@ Map<String, dynamic> _$$ToDoImplToJson(_$ToDoImpl instance) =>
       'todoId': instance.todoId,
       'title': instance.title,
       'description': instance.description,
-      'startDateTime': instance.startDateTime?.toIso8601String(),
-      'endDateTime': instance.endDateTime?.toIso8601String(),
-      'isAllDay': instance.isAllDay,
-      'isDone': instance.isDone,
+      'isCompleted': instance.isCompleted,
+      'completedAt': FirestoreField.toTimestampJson(instance.completedAt),
+      'createdAt': FirestoreField.toTimestampJson(instance.createdAt),
+      'updatedAt': FirestoreField.toTimestampJson(instance.updatedAt),
+      'deletedAt': FirestoreField.toTimestampJson(instance.deletedAt),
+      'isActive': instance.isActive,
     };

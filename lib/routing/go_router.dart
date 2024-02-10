@@ -34,13 +34,11 @@ final goRouterProvider = Provider<GoRouter>(
         // メールアドレスサインアップ画面
         GoRoute(
           path: RouterPath.signUp,
-          name: RouterPath.signUp,
           builder: (context, state) => const EmailSignUpView(),
         ),
         // メールアドレスサインイン画面
         GoRoute(
           path: RouterPath.signIn,
-          name: RouterPath.signIn,
           builder: (context, state) => const EmailSignInView(),
         ),
         // BottomNavBarを表示するルートブランチ
@@ -98,9 +96,9 @@ final goRouterProvider = Provider<GoRouter>(
       redirect: (BuildContext context, GoRouterState state) {
         final isAuth = authState.value != null;
 
-        if (!isAuth && state.path != RouterPath.signIn) {
+        if (!isAuth && state.fullPath != RouterPath.signIn) {
           return RouterPath.signUp;
-        } else if (!isAuth) {
+        } else if (!isAuth && state.fullPath != RouterPath.signUp) {
           return RouterPath.signIn;
         }
 
